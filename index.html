@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Portfolio homepage</title>
+    <link rel="stylesheet" href="styles.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
+    <script>
+      var projectsName = ["BoatsAttack", "UFOClicker"];
+      var pictures = ["images/boatsattack.png", "images/ufoclicker.png"];
+      var links = ["https://acript.itch.io/boatsattack", "https://acript.itch.io/ufoclicker"];
+      var actualIndex = 1;
+
+      function changeProject(actual_index) {
+        document.getElementById("thumbnail").src=pictures[actualIndex];
+        document.getElementById("thumbnail-link").href=links[actualIndex];
+        document.getElementById("thumbnail").title=projectsName[actualIndex];
+      }
+
+      function previousPicture() {
+        if (actualIndex > 0) {
+          actualIndex -= 1;
+        } else {
+          actualIndex = pictures.length - 1;
+        }
+
+        changeProject(actualIndex);
+      }
+      function nextPicture() {
+        if (actualIndex < pictures.length - 1) {
+          actualIndex += 1;
+        } else {
+          actualIndex = 0;
+        }
+
+        changeProject(actualIndex);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="header">
+        <div class="logo-image"><img style="width: 160px; border-radius: 64%;"src="images/avatar.png" alt="logo"/></div>
+        <div class="logo-text">Acript_</div>
+      </div>
+      <div class="nav">
+        <ul>
+          <li><a style="font-family: 'Gochi Hand', cursive;"href="webpages/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="menu-container">
+      <div class="menu">
+        <div class="button-select-left"><button class="button-select" onclick="previousPicture()">&#8249;</button></div>
+        <div class="project-image"><a id="thumbnail-link" href="https://acript.itch.io/ufoclicker"><img id="thumbnail" class="thumbnail" style="width 600px; height: 600px; border-radius: 64px;" src="images/ufoclicker.png" title="UFOClicker"/></a></div>
+        <div class="button-select-right"><button class="button-select" onclick="nextPicture()">&#8250;</button></div>
+        <video autoplay muted loop>
+          <source src="videos/background.mp4" type="video/mp4"/>
+        </video>
+      </div>
+    </div>
+  </body>
+</html>
